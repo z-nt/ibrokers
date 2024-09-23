@@ -1,18 +1,7 @@
-// Copyright 2013 The Flutter Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
-/// This sample app shows an app with two screens.
-///
-/// The first route '/' is mapped to [HomeScreen], and the second route
-/// '/details' is mapped to [DetailsScreen].
-///
-/// The buttons use context.go() to navigate to each destination. On mobile
-/// devices, each destination is deep-linkable and on the web, can be navigated
-/// to using the address bar.
+import 'package:ibroker/style/style.dart';
 void main() => runApp(const MyApp());
 
 /// The route configuration.
@@ -21,7 +10,7 @@ final GoRouter _router = GoRouter(
     GoRoute(
       path: '/',
       builder: (BuildContext context, GoRouterState state) {
-        return const HomeScreen();
+        return  const HomeScreen();
       },
       routes: <RouteBase>[
         GoRoute(
@@ -48,20 +37,39 @@ class MyApp extends StatelessWidget {
   }
 }
 
+
 /// The home screen
 class HomeScreen extends StatelessWidget {
   /// Constructs a [HomeScreen]
   const HomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context){
     return Scaffold(
-      appBar: AppBar(title: const Text('Home Screen')),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () => context.go('/details'),
-          child: const Text('Go to the Details screen'),
+      appBar: AppBar(title: const Text('خوش آمدید !'),
+      titleTextStyle: headerStyle,
+      centerTitle: true,
+      ),
+
+      body: Column(
+
+        children:<Widget>[
+
+          TextFormField(
+
+            decoration:const InputDecoration(
+              labelText: 'نام کاربری ',
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(12)),
+              ),
+              hintStyle: inputTitleStyle,
+              constraints: BoxConstraints(maxWidth: 343),
+            
+            ),
         ),
+        ],
+
+       
       ),
     );
   }
@@ -78,10 +86,14 @@ class DetailsScreen extends StatelessWidget {
       appBar: AppBar(title: const Text('Details Screen')),
       body: Center(
         child: ElevatedButton(
+       
           onPressed: () => context.go('/'),
           child: const Text('Go back to the Home screen'),
+          
         ),
       ),
     );
   }
 }
+
+
