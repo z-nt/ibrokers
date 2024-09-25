@@ -1,21 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:ibroker/pages/responsive/desktopBody.dart';
+import 'package:ibroker/pages/responsive/mobilBody.dart';
+import 'package:ibroker/pages/responsive/responsive_layout.dart';
 
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   /// Constructs a [HomeScreen]
-  const HomeScreen({super.key});
+  const HomeScreen({Key? key}) : super(key: key);
 
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Home Screen')),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () => context.go('/details'),
-          child: const Text('Go to the Details screen'),
-        ),
-      ),
+        body: ResponsiveLayout(
+          mobilBody: MyMobilBody(),
+          desktopBody: MyDesktopBody(),
+          ),
     );
   }
 }

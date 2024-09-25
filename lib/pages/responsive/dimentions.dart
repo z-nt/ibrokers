@@ -1,0 +1,2 @@
+const mobileWidget = 600 ;
+
