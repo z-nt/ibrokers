@@ -7,6 +7,7 @@ import 'package:ibroker/pages/home/home.dart';
 import 'package:ibroker/pages/responsive/desktopBody.dart';
 import 'package:ibroker/pages/responsive/mobilBody.dart';
 import 'package:ibroker/pages/responsive/responsive_layout.dart';
+import 'package:ibroker/practice/practice.dart';
 import 'package:ibroker/style/style.dart';
 void main() => runApp(const MyApp());
 
@@ -39,7 +40,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomeScreen(),
+      // home: MyNav(
+      //   title:const Text('hello world'),
+      //    key: key),
+      home: const TutorialHome(),
       theme: ThemeData(primarySwatch: Colors.deepPurple),
     );
   }
